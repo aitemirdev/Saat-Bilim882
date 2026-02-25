@@ -1,0 +1,364 @@
+/* ========================= */
+/*          ROOT             */
+/* ========================= */
+
+:root {
+    --color-bg: #ffffff;
+    --color-primary: #0a1a3a;
+    --color-text: #000000;
+    --header-height: 72px;
+}
+
+/* ========================= */
+/*          HEADER           */
+/* ========================= */
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    z-index: 100;
+    background-color: var(--color-primary);
+    color: #ffffff;
+    transition: background-color 0.25s ease, backdrop-filter 0.25s ease;
+}
+
+.header--scrolled {
+    background-color: rgba(10, 26, 58, 0.6);
+    backdrop-filter: blur(12px);
+}
+
+.header__inner {
+    max-width: 1300px;
+    margin:auto;
+    padding: 3px 5px 0px 5px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/*.header__logo {*/
+/*    font-weight: 700;*/
+/*    font-size: 20px;*/
+/*    cursor: pointer;*/
+/*}*/
+.header__logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.header__logo-img {
+    height: 63px;
+    width: 63px;
+    object-fit: contain;
+    animation: fadeIn 0.4s ease;
+}
+
+.header__logo-text {
+    font-weight: 700;
+    font-size: 20px;
+    /*letter-spacing: 0.5px;*/
+    animation: fadeIn 0.4s ease;
+}
+
+/* плавное появление */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.header__nav {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.header__link {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    background: none;
+    padding: 8px 10px;
+    border-radius: 999px;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.header__link:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+    transform: translateY(-1px);
+}
+
+.header__link--button {
+    font: inherit;
+}
+
+/* ========================= */
+/*     PROGRAMS DROPDOWN     */
+/* ========================= */
+
+.header__dropdown-wrapper {
+    position: relative;
+}
+
+.programs-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 8px;
+    background-color: #ffffff;
+    color: var(--color-text);
+    border-radius: 16px;
+    padding: 12px;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.18);
+    width: 260px;
+
+    opacity: 0;
+    transform: translateY(6px);
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    z-index: 200;
+}
+
+.programs-dropdown--open {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.program-card {
+    border: none;
+    background: #f7f8fc;
+    border-radius: 14px;
+    padding: 10px 12px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    cursor: pointer;
+    text-align: left;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+}
+
+.program-card:hover {
+    background-color: #eef1ff;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(10, 26, 58, 0.18);
+}
+
+.program-card__icon {
+    font-size: 22px;
+}
+
+.program-card__title {
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 2px;
+}
+
+.program-card__description {
+    font-size: 12px;
+    color: #555;
+}
+
+.arrow {
+    display: inline-block;
+    margin-left: 6px;
+    transition: transform 0.25s ease;
+}
+
+.arrow--open {
+    transform: rotate(180deg);
+}
+
+/* ========================= */
+/*        MOBILE MENU        */
+/* ========================= */
+
+.burger {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 26px;
+    color: white;
+    cursor: pointer;
+}
+
+/* ----- MOBILE VERSION ----- */
+@media (max-width: 768px) {
+
+    .burger {
+        display: block;
+    }
+
+    .header__nav {
+        position: absolute;
+        top: var(--header-height);
+        right: 0;
+        background: #0a1a3a;
+
+        width: auto;
+        min-width: 200px;
+        max-width: 60%;
+
+        flex-direction: column;
+        padding: 20px;
+        display: none;
+
+        height: auto;
+        max-height: 90vh;
+        overflow-y: auto;
+
+        border-radius: 0 0 0 12px;
+    }
+
+    .header__nav--open {
+        display: flex;
+    }
+
+    /* Шторка программ внутри меню */
+    .programs-dropdown {
+        position: static;
+        width: 100%;
+        margin-top: 10px;
+
+        box-shadow: none;
+        border-radius: 10px;
+
+    }
+}
+
+/* ----- DESKTOP VERSION ----- */
+/* DESKTOP */
+@media (min-width: 769px) {
+
+    .header__nav {
+        display: flex !important;
+        position: static !important;
+        width: auto !important;
+        height: auto !important;
+        background: none !important;
+        padding: 0 !important;
+    }
+
+    .burger {
+        display: none !important;
+    }
+
+    .programs-dropdown {
+        position: absolute !important;
+        right: 0 !important;
+        width: 260px !important;
+    }
+}
+
+
+/* ========================= */
+/*          FOOTER           */
+/* ========================= */
+
+.footer {
+    background-color: #0a1a3a;
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+/* ========================= */
+/*        INTRO ANIMATION    */
+/* ========================= */
+
+.intro {
+    position: fixed;
+    inset: 0;
+    background: black;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.intro-video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Часы */
+.clock {
+    width: 160px;
+    height: 160px;
+    position: relative;
+    z-index: 10;
+    transition: opacity 0.4s ease, filter 0.4s ease;
+}
+
+.minute-hand,
+.hour-hand {
+    transform-origin: 50% 50%;
+}
+
+/* Медленное вращение */
+.intro.slow .minute-hand {
+    animation: rotate 4s linear infinite;
+}
+.intro.slow .hour-hand {
+    animation: rotate 12s linear infinite;
+}
+
+/* Быстрое вращение */
+.intro.fast .minute-hand {
+    animation: rotate 0.2s linear infinite;
+}
+.intro.fast .hour-hand {
+    animation: rotate 0.5s linear infinite;
+}
+
+/* Размытие */
+.intro.blur .clock {
+    filter: blur(12px);
+    opacity: 0.4;
+}
+
+/* Логотип появляется */
+.intro-logo {
+    position: absolute;
+    width: 180px;
+    opacity: 0;
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    transform: scale(0.8);
+}
+
+.intro.logo .intro-logo {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Исчезновение интро */
+.intro.fadeout {
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+/* Когда появляется логотип — часы исчезают */
+.intro.logo .clock {
+    opacity: 0;
+    transform: scale(0.8);
+    filter: blur(10px);
+    transition: opacity 0.6s ease, transform 0.6s ease, filter 0.6s ease;
+}
+
+/* Вращение */
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}

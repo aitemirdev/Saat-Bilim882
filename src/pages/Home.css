@@ -1,0 +1,180 @@
+/* HERO */
+.hero {
+    position: relative;
+    height:100vh;
+    background: url("/public/hero.png.jpeg") center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+}
+
+.hero-content {
+    position: relative;
+    text-align: center;
+    color: white;
+    z-index: 2;
+}
+.hero-content h1 {
+    font-size: 54px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+
+.hero-content p {
+    font-size: 22px;
+    opacity: 0.95;
+    text-shadow: 0 3px 12px rgba(0,0,0,0.4);
+}
+
+.hero-btn {
+    margin-top: 25px;
+    padding: 14px 34px;
+    background: linear-gradient(145deg, #1a3cff, #0f2bd1);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 6px 0 #0c1f9a;
+    transition: 0.2s ease;
+}
+
+.hero-btn:active {
+    transform: translateY(4px);
+    box-shadow: 0 2px 0 #0c1f9a;
+}
+/*.hero-btn:hover {*/
+/*    background: #0f2bd1;*/
+/*}*/
+
+/* КАРТОЧКИ */
+.cards-section {
+    padding: 60px 20px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.cards {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.card {
+    flex: 1;
+    background: white;
+    padding: 25px;
+    border-radius: 14px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 6px 25px rgba(0,0,0,0.12);
+}
+
+.card h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+/* О ЦЕНТРЕ */
+.about-section {
+    display: flex;
+    justify-content: space-between;
+    padding: 60px 20px;
+    max-width: 1100px;
+    margin: auto;
+    gap: 40px;
+}
+
+.about-timeline {
+    position: relative;
+    padding-left: 20px;
+}
+
+.line {
+    width: 3px;
+    height: 100px;
+    background: #1a3cff;
+    margin-bottom: 10px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background: #1a3cff;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+/* ОСНОВАТЕЛЬНИЦА */
+.founder-section {
+    display: flex;
+    gap: 40px;
+    padding: 60px 20px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.founder-photo {
+    width: 260px;
+    height: 320px;
+    background: #eaeaea;
+    border-radius: 14px;
+}
+
+.founder-list {
+    margin-top: 15px;
+    line-height: 1.6;
+}
+
+/* ИСТОРИЯ */
+.history-section {
+    padding: 60px 20px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.history-cards {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.history-card {
+    flex: 1;
+    background: white;
+    padding: 25px;
+    border-radius: 14px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.history-card:hover {
+    transform: translateY(-6px);
+}
+
+/* АНИМАЦИЯ */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
