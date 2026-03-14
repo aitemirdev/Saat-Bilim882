@@ -3,17 +3,25 @@ import "./Home.css";
 export default function Home() {
     return (
         <div className="home">
-
             {/* HERO */}
-            <section className="hero">
-                <div className="hero-overlay"></div>
+            <section className="hero" aria-label="Hero">
+                <img
+                    src="/hero.png.jpeg"
+                    alt="Фон — Saat Bilim"
+                    className="hero-bg"
+                    loading="eager"
+                    decoding="async"
+                />
+                <div className="hero-overlay" aria-hidden="true" />
+
                 <div className="hero-content">
                     <h1>SAAT BILIM EDUCATION CENTER</h1>
                     <p>Мы помогаем студентам поступать в Японию с 2010 года</p>
                     <button
                         className="hero-btn"
                         onClick={() => {
-                            document.getElementById("about").scrollIntoView({ behavior: "smooth" });
+                            const el = document.getElementById("about");
+                            if (el) el.scrollIntoView({ behavior: "smooth" });
                         }}
                     >
                         Узнать больше
@@ -42,9 +50,7 @@ export default function Home() {
 
                     <div className="card fade-in">
                         <h3>Наша философия</h3>
-                        <p>
-                            Стремление к знаниям, красоте и ежедневному счастью.
-                        </p>
+                        <p>Стремление к знаниям, красоте и ежедневному счастью.</p>
                     </div>
                 </div>
             </section>
@@ -61,16 +67,15 @@ export default function Home() {
                 </div>
 
                 <div className="about-timeline">
-                    <div className="line"></div>
-                    <div className="dot"></div>
+                    <div className="line" />
+                    <div className="dot" />
                     <p>Основан в 2010 году</p>
                 </div>
             </section>
 
             {/* ОСНОВАТЕЛЬНИЦА */}
             <section className="founder-section fade-in">
-                <div className="founder-photo"></div>
-
+                <div className="founder-photo" role="img" aria-label="Фото основательницы" />
                 <div className="founder-info">
                     <h2 className="section-title">Нуркамал Жумабай кызы</h2>
                     <p>
@@ -92,7 +97,6 @@ export default function Home() {
                 <h2 className="section-title">История центра</h2>
 
                 <div className="history-cards">
-
                     <div className="history-card fade-in">
                         <h3>2018</h3>
                         <p>
@@ -106,10 +110,8 @@ export default function Home() {
                             Проведены «Дни культуры КР» в Киото и Токио при поддержке посольства КР и ассоциации «Замандаш».
                         </p>
                     </div>
-
                 </div>
             </section>
-
         </div>
     );
 }
